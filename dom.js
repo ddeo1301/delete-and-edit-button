@@ -69,7 +69,7 @@ function filterItems(e){
     var itemName = item.firstChild.textContent;
     var descripti = item.childNodes[1].textContent;
     console.log(descripti)
-    if(itemName.toLowerCase().indexOf(text) != -1 || descripti.toLocaleLowerCase().indexOf(text) != -1){
+    if(itemName.toLowerCase().indexOf(text) != -1 || descripti.toLowerCase().indexOf(text) != -1){
       item.style.display = 'block';
     } else {
       item.style.display = 'none';
