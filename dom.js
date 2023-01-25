@@ -1,5 +1,6 @@
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
+var descri = document.getElementById('description');
 var filter = document.getElementById('filter');
 
 // Form submit event
@@ -15,13 +16,21 @@ function addItem(e){
 
   // Get input value
   var newItem = document.getElementById('item').value;
+  var newDescr = document.getElementById('description').value;
 
   // Create new li element
   var li = document.createElement('li');
+  var lie = document.createElement('Div');
+
   // Add class
   li.className = 'list-group-item';
+  //lie.className = 'list-group-item';
+
   // Add text node with input value
   li.appendChild(document.createTextNode(newItem));
+  li.appendChild(document.createTextNode(newDescr));
+  //li.appendChild(lie);
+  console.log(lie);
 
   // Create del button element
   var deleteBtn = document.createElement('button');
@@ -58,10 +67,13 @@ function filterItems(e){
   // Convert to an array
   Array.from(items).forEach(function(item){
     var itemName = item.firstChild.textContent;
-    if(itemName.toLowerCase().indexOf(text) != -1){
+    var descripti = item.childNodes[1].textContent;
+    console.log(descripti)
+    if(itemName.toLowerCase().indexOf(text) != -1 || descripti.toLocaleLowerCase().indexOf(text) != -1){
       item.style.display = 'block';
     } else {
       item.style.display = 'none';
     }
   });
 }
+
